@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 Route::get('/books', 'BookController@index' );
 Route::get('/books/new', 'BookController@new' );
-Route::post('/books/post', 'BookController@post' );
+Route::post('/books', 'BookController@post' );
+
+Route::get('/books/{id}', 'BookController@show');
 
 

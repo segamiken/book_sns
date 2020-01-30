@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Book;
 
 class BookController extends Controller
 {
@@ -16,5 +17,18 @@ class BookController extends Controller
         return view('book.new');
     }
 
-    public function 
+    public function post(Request $request)
+    {
+        $book = new Book;
+        $form = $request->all();
+        unset($form['_token']);
+        $book->fill($form)->save();
+        return redirect('/books/new');
+    }
+
+    public function show($id)
+    {
+        $book = Book::find($id);
+        return view('book.show', ['book' => $book]);
+    }
 }
