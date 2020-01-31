@@ -87,9 +87,13 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main>
             @yield('content')
         </main>
+
+        <footer>
+            Copyright KEN All Rights Reserved.
+        </footer>
     </div>
 </body>
 </html>
