@@ -10,7 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
+
+// トップページと説明ページ
 Route::get('/', function () {
     return view('top');
 });
@@ -19,14 +22,18 @@ Route::get('/about', function () {
     return view('about');
 });
 
+Route::get('/home', 'HomeController@index')->name('home');
+
+// 投稿関連のページ
 Route::get('/books', 'BookController@index' );
 Route::get('/books/new', 'BookController@new' );
 Route::post('/books', 'BookController@post' );
-
 Route::get('/books/{id}', 'BookController@show');
+Route::get('/books/{id}/edit', 'BookController@edit');
+Route::patch('/books', 'BookController@update');
 
-
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+// ユーザー関連のページ
+Route::get('/users', 'UserController@index');
+Route::get('/mypage', 'UserController@show');
+Route::get('/mypage/edit', 'UserController@edit');
+Route::patch('/users', 'UserController@update');
