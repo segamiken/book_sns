@@ -11359,6 +11359,12 @@ a.text-dark:focus {
 
 /* 追加CSS */
 
+/* 共通CSS */
+.main_content {
+  padding-top: 1.5rem;
+}
+
+
 /* フッター */
 footer {
   width: 100%;
@@ -11368,6 +11374,8 @@ footer {
   text-align: center;
   font-family :Quicksand, sans-serif;/*Google Font*/
   line-height: 50px;
+  position: fixed;
+  bottom: 0;
 }
 
 /* トップページ */
@@ -11395,4 +11403,57 @@ footer {
   transform: translate(-50%,-50%);
   margin:0;
   padding:0;
+}
+
+/* ユーザーページ */
+.user_show,
+.book_new {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.user_name,
+.user_email {
+  border-bottom: medium solid black;
+}
+
+.user_show > h1 {
+  text-align: center;
+}
+
+/* 本の投稿ページ */
+.book_new.h1 {
+  margin: 0 auto;
+}
+.book_title {
+  width: 100%;
+}
+.book_content {
+  width: 100%;
+}
+
+/* テーブルデザイン */
+table {
+  border-collapse: collapse;
+  margin: 0 auto;
+  padding: 0;
+  width: 70%;
+  table-layout: fixed;
+}
+
+table tr {
+  background-color: #fff;
+  border: 1px solid #bbb;
+  padding: .35em;
+}
+table th,
+table td {
+  padding: 1em 10px 1em 1em;
+  border-right: 1px solid #bbb;
+}
+table th {
+  font-size: .85em;
+}
+table thead tr{
+  background-color: #eee;
 }

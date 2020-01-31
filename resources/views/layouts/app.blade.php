@@ -69,6 +69,7 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="/books/new">New Post</a>
                                     <a class="dropdown-item" href="/books">Posts</a>
+                                    <a class="dropdown-item" href="/users">Users</a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -87,7 +88,7 @@
             </div>
         </nav>
 
-        <main>
+        <main class="main_content">
             @yield('content')
         </main>
 
