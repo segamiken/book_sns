@@ -162,6 +162,9 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+        // SQLのログ
+        App\Providers\DataBaseQueryServiceProvider::class,
+
         /*
          * Package Service Providers...
          */

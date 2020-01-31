@@ -12,7 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('top');
+});
+
+Route::get('/about', function () {
+    return view('about');
 });
 
 Route::get('/books', 'BookController@index' );
@@ -22,3 +26,7 @@ Route::post('/books', 'BookController@post' );
 Route::get('/books/{id}', 'BookController@show');
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

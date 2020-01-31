@@ -9,12 +9,12 @@ class BookController extends Controller
 {
     public function index(Request $request)
     {
-        return view('book.index');
+        return view('books.index');
     }
 
     public function new(Request $request)
     {
-        return view('book.new');
+        return view('books.new');
     }
 
     public function post(Request $request)
@@ -29,6 +29,6 @@ class BookController extends Controller
     public function show($id)
     {
         $book = Book::find($id);
-        return view('book.show', ['book' => $book]);
+        return view('books.show', ['book' => $book]);
     }
 }
