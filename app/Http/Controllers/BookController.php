@@ -22,6 +22,7 @@ class BookController extends Controller
 
     public function post(Request $request)
     {
+        $this->validate($request, Book::$rules);
         $book = new Book;
         $form = $request->all();
         unset($form['_token']);
@@ -44,6 +45,7 @@ class BookController extends Controller
 
     public function update(Request $request)
     {
+        $this->validate($request, Book::$rules);
         $book = Book::find($request->id);
         $form = $request->all();
         unset($form['token']);

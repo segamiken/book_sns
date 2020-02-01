@@ -17,7 +17,6 @@ class Book extends Model
  
     // Book validation
 	public static $rules = array(
-        'user_id' => 'required',
         'title' => 'required',
         'content' => 'required'
     );
