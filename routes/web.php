@@ -36,4 +36,4 @@ Route::patch('/books', 'BookController@update');
 Route::get('/users', 'UserController@index');
 Route::get('/mypage', 'UserController@show');
 Route::get('/mypage/edit', 'UserController@edit');
-Route::patch('/users', 'UserController@update');
+Route::post('/mypage', 'UserController@update');

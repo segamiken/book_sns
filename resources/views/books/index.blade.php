@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="book_index">
+        <h1>Books</h1>
         <table>
             <thead>
                 <tr>

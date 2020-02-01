@@ -18,4 +18,18 @@ class UserController extends Controller
         $users = User::all();
         return view('users.index', ['users' => $users]);
     }
+
+    public function edit() {
+        $user = Auth::user();
+        return view('users.edit', ['user' => $user]);
+    }
+
+    public function update(Request $request)
+    {
+        $user = User::find($request->id);
+        $form = $request->all();
+        unset($form['_token']);
+        $user->fill($form)->save();
+        return redirect('mypage');
+    }
 }

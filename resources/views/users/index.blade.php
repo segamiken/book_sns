@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="user_index">
+        <h1>Users</h1>
         <table>
             <thead>
                 <tr>

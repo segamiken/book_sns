@@ -11407,7 +11407,8 @@ footer {
 
 /* ユーザーページ */
 .user_show,
-.book_new {
+.book_new,
+.user_index {
   width: 70%;
   margin: 0 auto;
 }
@@ -11417,7 +11418,9 @@ footer {
   border-bottom: medium solid black;
 }
 
-.user_show > h1 {
+.user_show > h1,
+.user_index > h1,
+.book_index > h1 {
   text-align: center;
 }
 
