@@ -30,7 +30,7 @@ Route::get('/books/new', 'BookController@new' );
 Route::post('/books', 'BookController@post' );
 Route::get('/books/{id}', 'BookController@show');
 Route::get('/books/{id}/edit', 'BookController@edit');
-Route::patch('/books', 'BookController@update');
+Route::post('/books/{id}', 'BookController@update');
 
 // ユーザー関連のページ
 Route::get('/users', 'UserController@index');

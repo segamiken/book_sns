@@ -8,11 +8,15 @@
                 <tr>
                     <th>Name</th>
                     <th>Email</th>
+                    <th>Edit</th>
                 </tr>
             </thead>
             <tr>
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
+                <td>
+                    <a href="/mypage/edit">Edit your info</a>
+                </td>
             </tr>
         </table>
     </div>

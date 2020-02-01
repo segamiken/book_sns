@@ -11424,6 +11424,7 @@ footer {
   text-align: center;
 }
 
+
 /* 本の投稿ページ */
 .book_new.h1 {
   margin: 0 auto;
@@ -11436,12 +11437,10 @@ footer {
 }
 
 /* テーブルデザイン */
-table {
-  border-collapse: collapse;
+table {  
   margin: 0 auto;
   padding: 0;
   width: 70%;
-  table-layout: fixed;
 }
 
 table tr {
@@ -11459,4 +11458,7 @@ table th {
 }
 table thead tr{
   background-color: #eee;
+}
+.table_short {
+
 }
