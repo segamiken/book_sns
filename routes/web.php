@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+use App\Http\Controllers\BookController;
+
 Auth::routes();
 
 
@@ -31,6 +34,7 @@ Route::post('/books', 'BookController@post' );
 Route::get('/books/{id}', 'BookController@show');
 Route::get('/books/{id}/edit', 'BookController@edit');
 Route::post('/books/{id}', 'BookController@update');
+Route::post('/books/{id}/delete', 'BookController@delete');
 
 // ユーザー関連のページ
 Route::get('/users', 'UserController@index');

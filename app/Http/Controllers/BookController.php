@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Book;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class BookController extends Controller
 {
@@ -23,6 +25,7 @@ class BookController extends Controller
         $book = new Book;
         $form = $request->all();
         unset($form['_token']);
+        $book->user_id = Auth::user()->id;
         $book->fill($form)->save();
         return redirect()->action('BookController@show', ['id' => $book->id]);
     }
@@ -46,5 +49,11 @@ class BookController extends Controller
         unset($form['token']);
         $book->fill($form)->save();
         return redirect()->action('BookController@show', ['id' => $book->id]);
+    }
+
+    public function delete(Request $request)
+    {
+        Book::find($request->id)->delete();
+        return redirect('/books');
     }
 }

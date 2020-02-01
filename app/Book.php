@@ -6,11 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Book extends Model
 {
+    // UserModelとのRelation
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
+
+
     protected $guarded = array('id');
-    
+ 
+    // Book validation
 	public static $rules = array(
-        'person_id' => 'required',
+        'user_id' => 'required',
         'title' => 'required',
-        'message' => 'required'
+        'content' => 'required'
     );
 }
