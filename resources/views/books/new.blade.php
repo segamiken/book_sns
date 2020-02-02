@@ -13,7 +13,7 @@
     
     <div class="book_new">
         <h1>New Book</h1>
-        <form method='POST' action='/books'>
+        <form method='POST' action='/books' enctype="multipart/form-data">
             {{ csrf_field() }}
             <label for="title">Title</label>
             <br>
@@ -22,6 +22,9 @@
             <label for="content">Content</label>
             <br>
             <textarea name="content" cols="30" class="book_content"></textarea>
+            <br>
+            <input type="file" name="fileName">
+            <br>
             <br>
             <input type="submit" value="Post">
         </form>

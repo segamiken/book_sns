@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Book;
 use App\User;
 use Illuminate\Support\Facades\Auth;
+use Intervention\Image\Facades\Image;
 
 class BookController extends Controller
 {
@@ -27,10 +28,32 @@ class BookController extends Controller
     public function post(Request $request)
     {
         $this->validate($request, Book::$rules);
-        $book = new Book;
         $form = $request->all();
         unset($form['_token']);
+
+        //アップロードしたファイルのオリジナル名を取得する
+        $fileName = $form['fileName']->getClientOriginalName();
+        $fileName = time()."@".$fileName;
+
+        //アップロードしたファイルのパスを取得する。
+        $image = Image::make($form['fileName']->getRealPath());
+
+        //画像リサイズ
+        $image->resize(100, null, function ($constraint) {
+            $constraint->aspectRatio();
+        });
+
+        //画像の保存
+        $image->save(public_path() . '/images/' . $fileName);
+        $path = '/images/' . $fileName;
+
+        $book = new Book;
         $book->user_id = Auth::user()->id;
+
+        //データベースに画像のパスを保存。
+        $book->image_path = 'images/' . $fileName;
+
+        unset($form['fileName']);
         $book->fill($form)->save();
         return redirect()->action('BookController@show', ['id' => $book->id]);
     }
