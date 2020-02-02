@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+      }
+      
     public function show()
     {
         $user = Auth::user();
@@ -27,9 +31,15 @@ class UserController extends Controller
     public function update(Request $request)
     {
         $user = User::find($request->id);
-        $form = $request->all();
-        unset($form['_token']);
-        $user->fill($form)->save();
-        return redirect('mypage');
+
+        if ($user == Auth::user()) {
+            $form = $request->all();
+            unset($form['_token']);
+            $user->fill($form)->save();
+            return redirect('mypage');
+        } else {
+            return redirect('mypage');
+        }
+    
     }
 }

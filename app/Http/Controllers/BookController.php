@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Auth;
 
 class BookController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+      }
+
     public function index()
     {
         $books = Book::all();
@@ -40,7 +44,12 @@ class BookController extends Controller
     public function edit($id)
     {
         $book = Book::find($id);
-        return view('books.edit', ['book' => $book]);
+        if ($book->user_id == Auth::user()->id) {
+            return view('books.edit', ['book' => $book]);
+        }
+        else {
+            return redirect('/books');
+        }
     }
 
     public function update(Request $request)
