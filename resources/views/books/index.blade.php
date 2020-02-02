@@ -6,6 +6,7 @@
         <table>
             <thead>
                 <tr>
+                    <th>Image</th>
                     <th>Title</th>
                     <th>Content</th>
                     <th>Show</th>
@@ -13,6 +14,7 @@
             </thead>
         @foreach ($books as $book)
             <tr>
+                <td><img src="{{$book->image_path }}"></td>
                 <td>{{ $book->title }}</td>
                 <td>{{ $book->content }}</td>
                 <td><a href="/books/{{ $book->id }}">Show</a></td>
